@@ -31,6 +31,10 @@
 		954530DC2636D2E9005F7510 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954530D92636D2E9005F7510 /* Image.swift */; };
 		954530E22636D304005F7510 /* ListCatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954530E12636D304005F7510 /* ListCatsViewModel.swift */; };
 		954530E82636D32C005F7510 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954530E72636D32C005F7510 /* Extensions.swift */; };
+		954530F92636D4ED005F7510 /* WebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954530F82636D4ED005F7510 /* WebApi.swift */; };
+		954531012636D6E4005F7510 /* CatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954531002636D6E4005F7510 /* CatRepository.swift */; };
+		954531072636D855005F7510 /* cat.json in Resources */ = {isa = PBXBuildFile; fileRef = 954531062636D855005F7510 /* cat.json */; };
+		9545310F2636D908005F7510 /* TextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545310E2636D908005F7510 /* TextConstants.swift */; };
 		99B5B465A2D6B1C28D2369DC /* Pods_TestCondorLabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C9359B6C2F20FF64EEAAEF /* Pods_TestCondorLabs.framework */; };
 		CA8382461768157DD25625A3 /* Pods_TestCondorLabs_TestCondorLabsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA35D6135E830B69F2C0CD0 /* Pods_TestCondorLabs_TestCondorLabsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +97,10 @@
 		954530D92636D2E9005F7510 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		954530E12636D304005F7510 /* ListCatsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCatsViewModel.swift; sourceTree = "<group>"; };
 		954530E72636D32C005F7510 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		954530F82636D4ED005F7510 /* WebApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebApi.swift; sourceTree = "<group>"; };
+		954531002636D6E4005F7510 /* CatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatRepository.swift; sourceTree = "<group>"; };
+		954531062636D855005F7510 /* cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cat.json; sourceTree = "<group>"; };
+		9545310E2636D908005F7510 /* TextConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstants.swift; sourceTree = "<group>"; };
 		966F393B8490E55F90AD4FAC /* Pods-TestCondorLabs.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabs.debug(dev).xcconfig"; path = "Target Support Files/Pods-TestCondorLabs/Pods-TestCondorLabs.debug(dev).xcconfig"; sourceTree = "<group>"; };
 		BA5F5E58D3F723D0DDE9ADF6 /* Pods-TestCondorLabs.release(prod).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabs.release(prod).xcconfig"; path = "Target Support Files/Pods-TestCondorLabs/Pods-TestCondorLabs.release(prod).xcconfig"; sourceTree = "<group>"; };
 		C77287B285FC77D4989A8E34 /* Pods-TestCondorLabsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabsTests.release.xcconfig"; path = "Target Support Files/Pods-TestCondorLabsTests/Pods-TestCondorLabsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +191,7 @@
 		9545303B2636CCAE005F7510 /* TestCondorLabs */ = {
 			isa = PBXGroup;
 			children = (
+				954531052636D842005F7510 /* Recurses */,
 				954530E62636D327005F7510 /* Util */,
 				954530862636CD4C005F7510 /* App */,
 				9545306F2636CCC1005F7510 /* Config */,
@@ -190,7 +199,6 @@
 				9545303E2636CCAE005F7510 /* SceneDelegate.swift */,
 				954530402636CCAE005F7510 /* ViewController.swift */,
 				954530422636CCAE005F7510 /* Main.storyboard */,
-				954530452636CCB0005F7510 /* Assets.xcassets */,
 				954530472636CCB0005F7510 /* LaunchScreen.storyboard */,
 				9545304A2636CCB0005F7510 /* Info.plist */,
 			);
@@ -227,6 +235,7 @@
 		954530862636CD4C005F7510 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				954530F72636D4CD005F7510 /* Repository */,
 				9545309D2636CEE8005F7510 /* Model */,
 				9545309C2636CEDE005F7510 /* ViewModel */,
 				9545309B2636CED9005F7510 /* Views */,
@@ -315,6 +324,25 @@
 				954530E72636D32C005F7510 /* Extensions.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		954530F72636D4CD005F7510 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				954530F82636D4ED005F7510 /* WebApi.swift */,
+				954531002636D6E4005F7510 /* CatRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		954531052636D842005F7510 /* Recurses */ = {
+			isa = PBXGroup;
+			children = (
+				954531062636D855005F7510 /* cat.json */,
+				954530452636CCB0005F7510 /* Assets.xcassets */,
+				9545310E2636D908005F7510 /* TextConstants.swift */,
+			);
+			path = Recurses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954531072636D855005F7510 /* cat.json in Resources */,
 				954530492636CCB0005F7510 /* LaunchScreen.storyboard in Resources */,
 				954530B02636D1F1005F7510 /* ListCats.storyboard in Resources */,
 				954530D22636D2AF005F7510 /* DetailCat.storyboard in Resources */,
@@ -562,6 +591,7 @@
 				954530DA2636D2E9005F7510 /* Weight.swift in Sources */,
 				954530CA2636D29D005F7510 /* CustomView.swift in Sources */,
 				954530D32636D2AF005F7510 /* DetailCatViewController.swift in Sources */,
+				9545310F2636D908005F7510 /* TextConstants.swift in Sources */,
 				954530CB2636D29D005F7510 /* SwiftSpinner.swift in Sources */,
 				954530E22636D304005F7510 /* ListCatsViewModel.swift in Sources */,
 				954530AF2636D1F1005F7510 /* ListCatsViewController.swift in Sources */,
@@ -572,7 +602,9 @@
 				954530A32636D1D9005F7510 /* SearchItemView..swift in Sources */,
 				954530C92636D29D005F7510 /* CustomButton.swift in Sources */,
 				954530A92636D1E4005F7510 /* ListCatsTableiViewCell.swift in Sources */,
+				954531012636D6E4005F7510 /* CatRepository.swift in Sources */,
 				9545303F2636CCAE005F7510 /* SceneDelegate.swift in Sources */,
+				954530F92636D4ED005F7510 /* WebApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

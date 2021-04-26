@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import URLImage
+import SkeletonView
 class ListCatsTableiViewCell: UITableViewCell{
     @IBOutlet weak var generalView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -44,6 +45,14 @@ class ListCatsTableiViewCell: UITableViewCell{
             detail?(cat)
         }
         
+    }
+    
+    func showSkeletor() {
+        self.titleLabel.showGradientSkeleton()
+    }
+    
+    func hideSkeletor(){
+        self.titleLabel.hideSkeleton()
     }
     
 }

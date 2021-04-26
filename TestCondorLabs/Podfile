@@ -10,6 +10,7 @@ target 'TestCondorLabs' do
   pod 'SwiftGifOrigin', '~> 1.7.0'
   pod 'URLImage', '~> 2.2.3'
   pod "TTGSnackbar", '~> 1.10.3'
+  pod 'SkeletonView', '~> 1.14.0'
   # Pods for TestCondorLabs
 
   target 'TestCondorLabsTests' do

@@ -14,10 +14,15 @@ class ListCatsViewController: UIViewController {
     @IBOutlet weak var catsTableView: UITableView!
     
     var isLoading = false
-    var listCats = [CatModel]()
     var initListCats = [CatModel]()
     var selectCat: CatModel?
     var listCatsViewModel: ListCatsViewModel?
+    let limit = 10
+    var page = 0
+    let rateCall: CGFloat = 700
+    var isCallService = true
+    var isFullPageCall = false
+    var limitSkeletor = 3
     override func viewDidLoad() {
         
         
@@ -31,7 +36,7 @@ class ListCatsViewController: UIViewController {
     
     func initComponent(){
         listCatsViewModel = ListCatsViewModel(listCatsViewModelDelegate: self)
-        listCatsViewModel?.getListCats(controller: self)
+        listCatsViewModel?.getListCats(limit: limit, page: page)
         isLoading = true
         catsTableView.reloadData()
         searchItemView.delegate = self
@@ -45,18 +50,25 @@ extension ListCatsViewController: UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (isLoading) ? 3 : listCats.count
+        return (isLoading) ? limitSkeletor : initListCats.count + limitSkeletor
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? ListCatsTableiViewCell{
-            if isLoading{
-                cell.generalView.startShimmeringAnimation()
-            } else{
-                cell.generalView.stopShimmeringAnimation()
-                cell.setData(catModel: listCats[indexPath.row]) { (catModel) in
-                    self.selectCat = catModel
-                    self.performSegue(withIdentifier: "showDetailCat", sender: nil)
+            if isLoading {
+                cell.showSkeletor()
+            } else {
+             
+                print("==index: \(indexPath.row)")
+                if indexPath.row > (initListCats.count - 1) {
+                    cell.showSkeletor()
+                } else {
+                    cell.generalView.stopShimmeringAnimation()
+                    cell.setData(catModel: initListCats[indexPath.row]) { (catModel) in
+                        self.selectCat = catModel
+                        self.performSegue(withIdentifier: "showDetailCat", sender: nil)
+                    }
+                    
                 }
             }
             
@@ -80,14 +92,17 @@ extension ListCatsViewController: ListCatsViewModelDelegate{
         let snackbar = TTGSnackbar(message: error, duration: .short)
         snackbar.show()
         isLoading = false
+        isCallService = true
         catsTableView.reloadData()
     }
     
     func successgetListCats(succesGetCat listCats: [CatModel]) {
-        self.listCats = listCats
-        self.initListCats = listCats
-        catsTableView.reloadData()
+        if listCats.count < limit {
+            isFullPageCall = true
+        }
+        self.initListCats.append(contentsOf: listCats)
         isLoading = false
+        isCallService = true
         catsTableView.reloadData()
     }
     
@@ -96,8 +111,8 @@ extension ListCatsViewController: ListCatsViewModelDelegate{
 //MARK: -SearchItemViewDelegate
 extension ListCatsViewController: SearchItemViewDelegate{
     func fetchField(text: String) {
-        self.listCats = listCatsViewModel?.filterCats(text: text, listCats: self.initListCats) ?? [CatModel]()
-        catsTableView.reloadData()
+        //self.listCats = listCatsViewModel?.filterCats(text: text, listCats: self.initListCats) ?? [CatModel]()
+        //catsTableView.reloadData()
     }
     
     
@@ -109,6 +124,18 @@ extension ListCatsViewController{
         // Pass the selected object to the new view controller.
         if let detailCatViewController = segue.destination as? DetailCatViewController{
             detailCatViewController.selectCat = self.selectCat
+        }
+    }
+}
+
+extension ListCatsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= (catsTableView.contentSize.height - rateCall) {
+            if !isFullPageCall && isCallService {
+                page += 1
+                listCatsViewModel?.getListCats(limit: limit, page: page)
+                isCallService = false
+            }
         }
     }
 }

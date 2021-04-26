@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import Alamofire
-protocol ListCatsViewModelDelegate {
+protocol ListCatsViewModelDelegate: class {
     func successgetListCats(succesGetCat listCats: [CatModel])
     func error(error: String)
     
@@ -35,26 +35,20 @@ class ListCatsViewModel{
 }
 
 extension ListCatsViewModel{
-    func getListCats(controller: UIViewController){
+    func getListCats(limit: Int, page: Int){
 
         //SwiftSpinner.show("loading...")
-        AF.request("https://api.thecatapi.com/v1/breeds", method: .get).response { (respose) in
-            //SwiftSpinner.hide()
-            if let respo = respose.response{
-                if respo.statusCode == 200 || respose.response?.statusCode == 201 {
-                    
-                    let listCatModel = try! JSONDecoder().decode([CatModel].self, from: respose.data ?? Data())
-                    self.listCatsViewModelDelegate?.successgetListCats(succesGetCat: listCatModel)
-                } else {
-                    self.listCatsViewModelDelegate?.error(error: respose.error?.localizedDescription ?? "no data encode")
-                }
+        CatRepository.getListCats(limit: limit, page: page) { (catsModel) in
+            if !catsModel.isEmpty {
+                self.listCatsViewModelDelegate?.successgetListCats(succesGetCat: catsModel)
             } else {
-                self.listCatsViewModelDelegate?.error(error: respose.error?.localizedDescription ?? "no data encode")
+                self.listCatsViewModelDelegate?.error(error: TextConstants().WS_ERROR_NO_DATA)
             }
             
+        } error: { (err) in
+            self.listCatsViewModelDelegate?.error(error: err)
         }
-              
-                
+
             
     }
 }
