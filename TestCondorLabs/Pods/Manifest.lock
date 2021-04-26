@@ -1,0 +1,50 @@
+PODS:
+  - Alamofire (5.4.2)
+  - IQKeyboardManagerSwift (6.3.0)
+  - SwiftGifOrigin (1.7.0)
+  - TTGSnackbar (1.10.5)
+  - URLImage (2.2.4):
+    - URLImage/Common (= 2.2.4)
+    - URLImage/DownloadManager (= 2.2.4)
+    - URLImage/FileIndex (= 2.2.4)
+    - URLImage/ImageDecoder (= 2.2.4)
+    - URLImage/Log (= 2.2.4)
+    - URLImage/PlainDatabase (= 2.2.4)
+    - URLImage/RemoteContentView (= 2.2.4)
+  - URLImage/Common (2.2.4)
+  - URLImage/DownloadManager (2.2.4):
+    - URLImage/Log
+  - URLImage/FileIndex (2.2.4):
+    - URLImage/Common
+    - URLImage/Log
+    - URLImage/PlainDatabase
+  - URLImage/ImageDecoder (2.2.4)
+  - URLImage/Log (2.2.4)
+  - URLImage/PlainDatabase (2.2.4)
+  - URLImage/RemoteContentView (2.2.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - IQKeyboardManagerSwift (= 6.3.0)
+  - SwiftGifOrigin (~> 1.7.0)
+  - TTGSnackbar (~> 1.10.3)
+  - URLImage (~> 2.2.3)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - SwiftGifOrigin
+    - TTGSnackbar
+    - URLImage
+
+SPEC CHECKSUMS:
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
+  TTGSnackbar: 2bd245d2bbf83639483410273fd936af0b7ba2a9
+  URLImage: d1e2ab4122e2a5acafc9f59930344632b97b67ab
+
+PODFILE CHECKSUM: 8d140f34b4a1462917106dc062a5c64f648a0273
+
+COCOAPODS: 1.10.1
