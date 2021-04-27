@@ -10,6 +10,7 @@ import Alamofire
 
 enum Api {
     case getAllBreeds
+    case getBreadsForSearch
 }
 
 func getStringInfoPList(key: String) -> String {
@@ -20,6 +21,9 @@ func getApi(api: Api) -> String{
     switch api {
     case .getAllBreeds:
         let url = getStringInfoPList(key: "KURL_BASE") + "/v1/breeds?limit={limit}&page={page}&order=Desc"
+        return url
+    case .getBreadsForSearch:
+        let url = getStringInfoPList(key: "KURL_BASE") + "/v1/images/search?breed_ids={idBread}"
         return url
     default:
         return "/sites"

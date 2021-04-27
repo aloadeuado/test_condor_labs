@@ -11,7 +11,7 @@
         <!--Detail Cat View Controller-->
         <scene sceneID="CpO-It-3zD">
             <objects>
-                <viewController storyboardIdentifier="DetailCatViewController" id="R5v-gh-Hyj" customClass="DetailCatViewController" customModule="TestExito" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailCatViewController" id="R5v-gh-Hyj" customClass="DetailCatViewController" customModule="TestCondorLabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wKd-Ie-VoH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,6 +22,13 @@
                                     <constraint firstAttribute="width" secondItem="h9c-6S-0t2" secondAttribute="height" multiplier="1:1" id="pei-Mz-naI"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NlC-fL-bqH" customClass="PhotoView" customModule="TestCondorLabs" customModuleProvider="target">
+                                <rect key="frame" x="5" y="49" width="404" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="F7I-h3-1kR"/>
+                                </constraints>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUW-4H-PUf">
                                 <rect key="frame" x="20" y="448" width="374" height="404"/>
                                 <subviews>
@@ -87,15 +94,19 @@
                         <constraints>
                             <constraint firstItem="h9c-6S-0t2" firstAttribute="top" secondItem="QjG-Lp-gpT" secondAttribute="top" constant="20" id="3xu-l0-COo"/>
                             <constraint firstItem="h9c-6S-0t2" firstAttribute="leading" secondItem="QjG-Lp-gpT" secondAttribute="leading" constant="20" id="8gB-oO-DCx"/>
+                            <constraint firstItem="NlC-fL-bqH" firstAttribute="leading" secondItem="QjG-Lp-gpT" secondAttribute="leading" constant="5" id="9SI-Xf-ago"/>
                             <constraint firstItem="QjG-Lp-gpT" firstAttribute="trailing" secondItem="h9c-6S-0t2" secondAttribute="trailing" constant="20" id="9qG-26-G4B"/>
                             <constraint firstItem="QjG-Lp-gpT" firstAttribute="bottom" secondItem="JUW-4H-PUf" secondAttribute="bottom" constant="10" id="A3Y-bv-d3l"/>
+                            <constraint firstItem="NlC-fL-bqH" firstAttribute="top" secondItem="QjG-Lp-gpT" secondAttribute="top" constant="5" id="CT4-Rz-bFr"/>
                             <constraint firstItem="JUW-4H-PUf" firstAttribute="leading" secondItem="h9c-6S-0t2" secondAttribute="leading" id="PAe-oU-JMx"/>
                             <constraint firstItem="JUW-4H-PUf" firstAttribute="top" secondItem="h9c-6S-0t2" secondAttribute="bottom" constant="10" id="UmS-Ku-0oS"/>
+                            <constraint firstItem="QjG-Lp-gpT" firstAttribute="trailing" secondItem="NlC-fL-bqH" secondAttribute="trailing" constant="5" id="qjO-Cd-bxW"/>
                             <constraint firstItem="JUW-4H-PUf" firstAttribute="trailing" secondItem="h9c-6S-0t2" secondAttribute="trailing" id="unR-TC-mcj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="catImageView" destination="h9c-6S-0t2" id="mr7-em-QJy"/>
+                        <outlet property="catsPhotoView" destination="NlC-fL-bqH" id="uUL-tU-L8Z"/>
                         <outlet property="contryLabel" destination="UOh-Qs-ITk" id="NRX-Tu-pua"/>
                         <outlet property="detailLabel" destination="s18-rl-bwX" id="Q5y-bJ-VI5"/>
                         <outlet property="nameLabel" destination="dpG-qw-XbJ" id="NZy-nw-Ot8"/>

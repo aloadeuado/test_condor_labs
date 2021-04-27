@@ -35,6 +35,11 @@
 		954531012636D6E4005F7510 /* CatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954531002636D6E4005F7510 /* CatRepository.swift */; };
 		954531072636D855005F7510 /* cat.json in Resources */ = {isa = PBXBuildFile; fileRef = 954531062636D855005F7510 /* cat.json */; };
 		9545310F2636D908005F7510 /* TextConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545310E2636D908005F7510 /* TextConstants.swift */; };
+		9545312F263755DC005F7510 /* DetailCatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545312E263755DC005F7510 /* DetailCatViewModel.swift */; };
+		9545313426375AD8005F7510 /* DetailCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545313326375AD8005F7510 /* DetailCat.swift */; };
+		954531462638420A005F7510 /* OwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954531452638420A005F7510 /* OwnerView.swift */; };
+		9545314D26384DE0005F7510 /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9545314C26384DE0005F7510 /* PhotoView.xib */; };
+		9545315226384DF6005F7510 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545315126384DF6005F7510 /* PhotoView.swift */; };
 		99B5B465A2D6B1C28D2369DC /* Pods_TestCondorLabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C9359B6C2F20FF64EEAAEF /* Pods_TestCondorLabs.framework */; };
 		CA8382461768157DD25625A3 /* Pods_TestCondorLabs_TestCondorLabsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA35D6135E830B69F2C0CD0 /* Pods_TestCondorLabs_TestCondorLabsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +106,11 @@
 		954531002636D6E4005F7510 /* CatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatRepository.swift; sourceTree = "<group>"; };
 		954531062636D855005F7510 /* cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cat.json; sourceTree = "<group>"; };
 		9545310E2636D908005F7510 /* TextConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextConstants.swift; sourceTree = "<group>"; };
+		9545312E263755DC005F7510 /* DetailCatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCatViewModel.swift; sourceTree = "<group>"; };
+		9545313326375AD8005F7510 /* DetailCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCat.swift; sourceTree = "<group>"; };
+		954531452638420A005F7510 /* OwnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerView.swift; sourceTree = "<group>"; };
+		9545314C26384DE0005F7510 /* PhotoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
+		9545315126384DF6005F7510 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		966F393B8490E55F90AD4FAC /* Pods-TestCondorLabs.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabs.debug(dev).xcconfig"; path = "Target Support Files/Pods-TestCondorLabs/Pods-TestCondorLabs.debug(dev).xcconfig"; sourceTree = "<group>"; };
 		BA5F5E58D3F723D0DDE9ADF6 /* Pods-TestCondorLabs.release(prod).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabs.release(prod).xcconfig"; path = "Target Support Files/Pods-TestCondorLabs/Pods-TestCondorLabs.release(prod).xcconfig"; sourceTree = "<group>"; };
 		C77287B285FC77D4989A8E34 /* Pods-TestCondorLabsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabsTests.release.xcconfig"; path = "Target Support Files/Pods-TestCondorLabsTests/Pods-TestCondorLabsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				954530E12636D304005F7510 /* ListCatsViewModel.swift */,
+				9545312E263755DC005F7510 /* DetailCatViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -267,6 +278,7 @@
 				954530D82636D2E8005F7510 /* CatModel.swift */,
 				954530D92636D2E9005F7510 /* Image.swift */,
 				954530D72636D2E8005F7510 /* Weight.swift */,
+				9545313326375AD8005F7510 /* DetailCat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +314,8 @@
 		954530C52636D291005F7510 /* CustomControlls */ = {
 			isa = PBXGroup;
 			children = (
+				9545314A26384268005F7510 /* PhotoView */,
+				954531452638420A005F7510 /* OwnerView.swift */,
 				954530C62636D29C005F7510 /* CustomButton.swift */,
 				954530C72636D29C005F7510 /* CustomView.swift */,
 				954530C82636D29C005F7510 /* SwiftSpinner.swift */,
@@ -343,6 +357,15 @@
 				9545310E2636D908005F7510 /* TextConstants.swift */,
 			);
 			path = Recurses;
+			sourceTree = "<group>";
+		};
+		9545314A26384268005F7510 /* PhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				9545314C26384DE0005F7510 /* PhotoView.xib */,
+				9545315126384DF6005F7510 /* PhotoView.swift */,
+			);
+			path = PhotoView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,6 +479,7 @@
 				954531072636D855005F7510 /* cat.json in Resources */,
 				954530492636CCB0005F7510 /* LaunchScreen.storyboard in Resources */,
 				954530B02636D1F1005F7510 /* ListCats.storyboard in Resources */,
+				9545314D26384DE0005F7510 /* PhotoView.xib in Resources */,
 				954530D22636D2AF005F7510 /* DetailCat.storyboard in Resources */,
 				954530462636CCB0005F7510 /* Assets.xcassets in Resources */,
 				954530442636CCAE005F7510 /* Main.storyboard in Resources */,
@@ -592,16 +616,20 @@
 				954530CA2636D29D005F7510 /* CustomView.swift in Sources */,
 				954530D32636D2AF005F7510 /* DetailCatViewController.swift in Sources */,
 				9545310F2636D908005F7510 /* TextConstants.swift in Sources */,
+				9545315226384DF6005F7510 /* PhotoView.swift in Sources */,
+				9545313426375AD8005F7510 /* DetailCat.swift in Sources */,
 				954530CB2636D29D005F7510 /* SwiftSpinner.swift in Sources */,
 				954530E22636D304005F7510 /* ListCatsViewModel.swift in Sources */,
 				954530AF2636D1F1005F7510 /* ListCatsViewController.swift in Sources */,
 				954530DC2636D2E9005F7510 /* Image.swift in Sources */,
 				954530DB2636D2E9005F7510 /* CatModel.swift in Sources */,
+				954531462638420A005F7510 /* OwnerView.swift in Sources */,
 				9545303D2636CCAE005F7510 /* AppDelegate.swift in Sources */,
 				954530E82636D32C005F7510 /* Extensions.swift in Sources */,
 				954530A32636D1D9005F7510 /* SearchItemView..swift in Sources */,
 				954530C92636D29D005F7510 /* CustomButton.swift in Sources */,
 				954530A92636D1E4005F7510 /* ListCatsTableiViewCell.swift in Sources */,
+				9545312F263755DC005F7510 /* DetailCatViewModel.swift in Sources */,
 				954531012636D6E4005F7510 /* CatRepository.swift in Sources */,
 				9545303F2636CCAE005F7510 /* SceneDelegate.swift in Sources */,
 				954530F92636D4ED005F7510 /* WebApi.swift in Sources */,

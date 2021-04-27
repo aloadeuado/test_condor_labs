@@ -48,11 +48,12 @@ class ListCatsTableiViewCell: UITableViewCell{
     }
     
     func showSkeletor() {
-        self.titleLabel.showGradientSkeleton()
+        //let dddd = self.catImageView
+        self.catImageView.showGradientSkeleton()
     }
     
     func hideSkeletor(){
-        self.titleLabel.hideSkeleton()
+        self.catImageView.hideSkeleton()
     }
     
 }

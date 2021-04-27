@@ -18,4 +18,15 @@ class CatRepository {
         }
 
     }
+    
+    static func getDetailsOfCat(idBread: String, ok: @escaping (([DetailCatElement]) -> Void), error: @escaping ((String) -> Void)) {
+        let newUrl = getApi(api: .getBreadsForSearch).replacingOccurrences(of: "{idBread}", with: "\(idBread)")
+        getReturnData(url: newUrl, statusCorrect: [200, 201]) { (data) in
+            let listCatModel = try! JSONDecoder().decode([DetailCatElement].self, from: data)
+            ok(listCatModel)
+        } error: { (err) in
+            error(err)
+        }
+
+    }
 }

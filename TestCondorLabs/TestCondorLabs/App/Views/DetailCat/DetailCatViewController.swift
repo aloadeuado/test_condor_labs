@@ -14,8 +14,11 @@ class DetailCatViewController: UIViewController {
     @IBOutlet weak var contryLabel: UILabel!
     @IBOutlet weak var smartLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var catsPhotoView: PhotoView!
     
     var selectCat: CatModel?
+    var detailCatViewModel: DetailCatViewModel?
+    var listDetailCatElement = [DetailCatElement]()
     override func viewDidLoad() {
         super.viewDidLoad()
         initComponent()
@@ -23,21 +26,27 @@ class DetailCatViewController: UIViewController {
     }
     
     func initComponent(){
+        catsPhotoView.listUrlImage = ["https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg", "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg", "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg", "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg", "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg"]
+        detailCatViewModel = DetailCatViewModel(detailCatViewModelDelegate: self)
         guard let catModel = selectCat else {return}
         guard let image = catModel.image else {return}
         guard let urlImage = image.url else {return}
-        guard let urlImageURL = URL(string: urlImage) else {return}
+        
         
         guard let nameCat = catModel.name else {return}
         guard let origeCat = catModel.origin else {return}
         guard let temperamentCat = catModel.temperament else {return}
         guard let detailCat = catModel.description else {return}
+        detailCatViewModel?.getDetailCat(idBread: catModel.id ?? "")
+        if !listDetailCatElement.isEmpty {
+            guard let urlImageURL = URL(string: listDetailCatElement[0].url) else {return}
+            catImageView.load(url: urlImageURL)
+            nameLabel.text = nameCat
+            contryLabel.text = origeCat
+            smartLabel.text = temperamentCat
+            detailLabel.text = detailCat
+        }
         
-        catImageView.load(url: urlImageURL)
-        nameLabel.text = nameCat
-        contryLabel.text = origeCat
-        smartLabel.text = temperamentCat
-        detailLabel.text = detailCat
     }
 
     /*
@@ -50,4 +59,17 @@ class DetailCatViewController: UIViewController {
     }
     */
 
+}
+
+extension DetailCatViewController: DetailCatViewModelDelegate {
+    func successgetListCats(succesGetCat listCats: [DetailCatElement]) {
+        self.listDetailCatElement = listCats
+        //initComponent()
+    }
+    
+    func error(error: String) {
+        
+    }
+    
+    
 }
