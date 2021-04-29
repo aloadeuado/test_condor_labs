@@ -25,7 +25,7 @@ class PhotoView: OwnerView {
         }
     }
     
-    private var listImages = [UIImageView]()
+    var listImages = [UIImageView]()
     override func setView() {
         super.setView()
         generalScrollView.delegate = self
@@ -37,7 +37,7 @@ class PhotoView: OwnerView {
         let heigthImage: CGFloat = self.frame.height
         let widhtImage: CGFloat = self.frame.width
         let spaceX: CGFloat = 1
-        let tag = 0
+        var tag = 0
         for text in listUrlImage {
             let imageView = UIImageView(frame: CGRect(x: xInit, y: yInit, width: widhtImage, height: heigthImage))
             
@@ -50,6 +50,7 @@ class PhotoView: OwnerView {
             
             xInit += spaceX + widhtImage
             widhtScrollView.constant = xInit
+            tag += 1
         }
     }
     
@@ -67,16 +68,38 @@ class PhotoView: OwnerView {
                 indexSelection = 0
             }
         }
+        print("==index select: \(indexSelection)")
         setView(index: indexSelection)
     }
 
     func setView(index: Int) {
+        indexSelection = index
         inicatorPanelControl.currentPage = index
         for imageView in listImages {
             if imageView.tag == index {
                 generalScrollView.setContentOffset(CGPoint(x: imageView.frame.origin.x, y: imageView.frame.origin.y), animated: true)
             }
         }
+    }
+}
+//MARK: -Actions
+extension PhotoView {
+    @IBAction func nextItemPressed(button: UIButton) {
+        indexSelection += 1
+        if indexSelection >= (listUrlImage.count - 1) {
+            indexSelection = (listUrlImage.count - 1)
+        }
+        print("==index select: \(indexSelection)")
+        setView(index: indexSelection)
+    }
+    
+    @IBAction func beforeItemPressed(button: UIButton) {
+        indexSelection -= 1
+        if indexSelection <= 0 {
+            indexSelection = 0
+        }
+        print("==index select: \(indexSelection)")
+        setView(index: indexSelection)
     }
 }
 //MARK: -ScrollView
@@ -86,9 +109,17 @@ extension PhotoView: UIScrollViewDelegate {
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.x >= scrollOffset.x {
-            setPosition(isNextOrBefore: false)
-        } else {
             setPosition(isNextOrBefore: true)
+        } else {
+            setPosition(isNextOrBefore: false)
+        }
+    }
+    
+    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        for imageView in listImages {
+            if imageView.tag == indexSelection {
+                generalScrollView.setContentOffset(CGPoint(x: imageView.frame.origin.x, y: imageView.frame.origin.y), animated: true)
+            }
         }
     }
 }

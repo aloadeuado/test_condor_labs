@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TinderLikeView" customModule="TestCondorLabs" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="pDB-EH-xl8"/>
+                <outlet property="disLikeButton" destination="EWW-cl-WvJ" id="v6t-vc-2JQ"/>
+                <outlet property="likeButton" destination="oYD-zB-MRY" id="7Ua-wg-NPF"/>
+                <outlet property="movedButton" destination="hrC-iH-vjt" id="x2o-yA-BVH"/>
+                <outlet property="transformNewItem" destination="OlC-m8-qU5" id="vAI-yz-V97"/>
+                <outlet property="transformView" destination="2xs-Kd-zGs" id="7La-hY-DK3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomView" customModule="TestCondorLabs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OlC-m8-qU5" customClass="TransformNewItem" customModule="TestCondorLabs" customModuleProvider="target">
+                    <rect key="frame" x="20" y="64" width="374" height="421"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xs-Kd-zGs" customClass="TransformView" customModule="TestCondorLabs" customModuleProvider="target">
+                    <rect key="frame" x="20" y="64" width="374" height="421"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ioq-U2-fsZ">
+                    <rect key="frame" x="60" y="500" width="294" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWW-cl-WvJ">
+                            <rect key="frame" x="0.0" y="7.5" width="147" height="85.5"/>
+                            <state key="normal" title="Dislike" image="ic_dislike"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYD-zB-MRY">
+                            <rect key="frame" x="147" y="7.5" width="147" height="85.5"/>
+                            <state key="normal" image="ic_like"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="BMh-k1-wiO"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrC-iH-vjt" customClass="TouchCordinatesButton" customModule="TestCondorLabs" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="456"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="OlC-m8-qU5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="6Wz-j9-0X3"/>
+                <constraint firstItem="2xs-Kd-zGs" firstAttribute="top" secondItem="OlC-m8-qU5" secondAttribute="top" id="Cih-nZ-JTk"/>
+                <constraint firstItem="hrC-iH-vjt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Fhq-P3-l9v"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OlC-m8-qU5" secondAttribute="trailing" constant="20" id="KXW-DV-RTn"/>
+                <constraint firstItem="ioq-U2-fsZ" firstAttribute="top" secondItem="OlC-m8-qU5" secondAttribute="bottom" constant="15" id="Kqp-pi-liT"/>
+                <constraint firstItem="hrC-iH-vjt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="LuI-4l-j2M"/>
+                <constraint firstItem="2xs-Kd-zGs" firstAttribute="trailing" secondItem="OlC-m8-qU5" secondAttribute="trailing" id="SBd-7E-W7N"/>
+                <constraint firstItem="OlC-m8-qU5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="SVT-Pc-rFR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ioq-U2-fsZ" secondAttribute="trailing" constant="60" id="UB4-Pc-GNK"/>
+                <constraint firstItem="2xs-Kd-zGs" firstAttribute="bottom" secondItem="OlC-m8-qU5" secondAttribute="bottom" id="Ymw-X7-Xr3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ioq-U2-fsZ" secondAttribute="bottom" id="h2C-co-4DA"/>
+                <constraint firstItem="ioq-U2-fsZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="60" id="j7P-W1-Ffs"/>
+                <constraint firstItem="ioq-U2-fsZ" firstAttribute="top" secondItem="hrC-iH-vjt" secondAttribute="bottom" id="qtb-nf-nQn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hrC-iH-vjt" secondAttribute="trailing" id="tgM-Ne-gVJ"/>
+                <constraint firstItem="2xs-Kd-zGs" firstAttribute="leading" secondItem="OlC-m8-qU5" secondAttribute="leading" id="zQa-mU-YJb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="16"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-212" y="68"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_dislike" width="85.333335876464844" height="85.333335876464844"/>
+        <image name="ic_like" width="85.333335876464844" height="85.333335876464844"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

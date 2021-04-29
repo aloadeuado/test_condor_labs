@@ -23,7 +23,7 @@ func getApi(api: Api) -> String{
         let url = getStringInfoPList(key: "KURL_BASE") + "/v1/breeds?limit={limit}&page={page}&order=Desc"
         return url
     case .getBreadsForSearch:
-        let url = getStringInfoPList(key: "KURL_BASE") + "/v1/images/search?breed_ids={idBread}"
+        let url = getStringInfoPList(key: "KURL_BASE") + "/v1/images/search?breed_ids={idBread}&limit=10"
         return url
     default:
         return "/sites"

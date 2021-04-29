@@ -16,8 +16,6 @@
 		954530492636CCB0005F7510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954530472636CCB0005F7510 /* LaunchScreen.storyboard */; };
 		954530542636CCB0005F7510 /* TestCondorLabsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954530532636CCB0005F7510 /* TestCondorLabsTests.swift */; };
 		9545305F2636CCB0005F7510 /* TestCondorLabsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545305E2636CCB0005F7510 /* TestCondorLabsUITests.swift */; };
-		954530A32636D1D9005F7510 /* SearchItemView..swift in Sources */ = {isa = PBXBuildFile; fileRef = 954530A12636D1D9005F7510 /* SearchItemView..swift */; };
-		954530A42636D1D9005F7510 /* SearchItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 954530A22636D1D9005F7510 /* SearchItemView.xib */; };
 		954530A92636D1E4005F7510 /* ListCatsTableiViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954530A82636D1E4005F7510 /* ListCatsTableiViewCell.swift */; };
 		954530AF2636D1F1005F7510 /* ListCatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954530AD2636D1F0005F7510 /* ListCatsViewController.swift */; };
 		954530B02636D1F1005F7510 /* ListCats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954530AE2636D1F1005F7510 /* ListCats.storyboard */; };
@@ -40,6 +38,19 @@
 		954531462638420A005F7510 /* OwnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954531452638420A005F7510 /* OwnerView.swift */; };
 		9545314D26384DE0005F7510 /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9545314C26384DE0005F7510 /* PhotoView.xib */; };
 		9545315226384DF6005F7510 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545315126384DF6005F7510 /* PhotoView.swift */; };
+		9545330C263896BE005F7510 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9545330B263896BE005F7510 /* Test.storyboard */; };
+		95453311263896D7005F7510 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95453310263896D7005F7510 /* TestViewController.swift */; };
+		9545331526389841005F7510 /* TransformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95453304263893CC005F7510 /* TransformView.swift */; };
+		9545331926389845005F7510 /* TransformView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95453303263893CC005F7510 /* TransformView.xib */; };
+		9545341A2638F5E0005F7510 /* TouchCordinatesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954534192638F5E0005F7510 /* TouchCordinatesButton.swift */; };
+		9545343826392714005F7510 /* TinderLikeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9545343726392714005F7510 /* TinderLikeView.xib */; };
+		9545343D26392724005F7510 /* TinderLikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545343C26392724005F7510 /* TinderLikeView.swift */; };
+		9592348A26392DA400C5CAD5 /* TransformNewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9545342626391FD1005F7510 /* TransformNewItemView.swift */; };
+		9592348E26392DB300C5CAD5 /* TransformNewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9545342526391FD1005F7510 /* TransformNewItem.xib */; };
+		959234942639455A00C5CAD5 /* PopLikeAndDislike.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959234932639455A00C5CAD5 /* PopLikeAndDislike.storyboard */; };
+		959234992639456900C5CAD5 /* PopLikeAndDislikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959234982639456900C5CAD5 /* PopLikeAndDislikeViewController.swift */; };
+		95A501F8263A2486007E093B /* SearchBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95A501F6263A2486007E093B /* SearchBarView.xib */; };
+		95A501F9263A2486007E093B /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A501F7263A2486007E093B /* SearchBarView.swift */; };
 		99B5B465A2D6B1C28D2369DC /* Pods_TestCondorLabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C9359B6C2F20FF64EEAAEF /* Pods_TestCondorLabs.framework */; };
 		CA8382461768157DD25625A3 /* Pods_TestCondorLabs_TestCondorLabsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA35D6135E830B69F2C0CD0 /* Pods_TestCondorLabs_TestCondorLabsUITests.framework */; };
 /* End PBXBuildFile section */
@@ -87,8 +98,6 @@
 		954530602636CCB0005F7510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		954530702636CCDC005F7510 /* DEV.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DEV.xcconfig; sourceTree = "<group>"; };
 		954530712636CCF3005F7510 /* PROD.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PROD.xcconfig; sourceTree = "<group>"; };
-		954530A12636D1D9005F7510 /* SearchItemView..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItemView..swift; sourceTree = "<group>"; };
-		954530A22636D1D9005F7510 /* SearchItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchItemView.xib; sourceTree = "<group>"; };
 		954530A82636D1E4005F7510 /* ListCatsTableiViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCatsTableiViewCell.swift; sourceTree = "<group>"; };
 		954530AD2636D1F0005F7510 /* ListCatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCatsViewController.swift; sourceTree = "<group>"; };
 		954530AE2636D1F1005F7510 /* ListCats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListCats.storyboard; sourceTree = "<group>"; };
@@ -111,6 +120,19 @@
 		954531452638420A005F7510 /* OwnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerView.swift; sourceTree = "<group>"; };
 		9545314C26384DE0005F7510 /* PhotoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
 		9545315126384DF6005F7510 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		95453303263893CC005F7510 /* TransformView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformView.xib; sourceTree = "<group>"; };
+		95453304263893CC005F7510 /* TransformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformView.swift; sourceTree = "<group>"; };
+		9545330B263896BE005F7510 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
+		95453310263896D7005F7510 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		954534192638F5E0005F7510 /* TouchCordinatesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchCordinatesButton.swift; sourceTree = "<group>"; };
+		9545342526391FD1005F7510 /* TransformNewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformNewItem.xib; sourceTree = "<group>"; };
+		9545342626391FD1005F7510 /* TransformNewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformNewItemView.swift; sourceTree = "<group>"; };
+		9545343726392714005F7510 /* TinderLikeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TinderLikeView.xib; sourceTree = "<group>"; };
+		9545343C26392724005F7510 /* TinderLikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderLikeView.swift; sourceTree = "<group>"; };
+		959234932639455A00C5CAD5 /* PopLikeAndDislike.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopLikeAndDislike.storyboard; sourceTree = "<group>"; };
+		959234982639456900C5CAD5 /* PopLikeAndDislikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopLikeAndDislikeViewController.swift; sourceTree = "<group>"; };
+		95A501F6263A2486007E093B /* SearchBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBarView.xib; sourceTree = "<group>"; };
+		95A501F7263A2486007E093B /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		966F393B8490E55F90AD4FAC /* Pods-TestCondorLabs.debug(dev).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabs.debug(dev).xcconfig"; path = "Target Support Files/Pods-TestCondorLabs/Pods-TestCondorLabs.debug(dev).xcconfig"; sourceTree = "<group>"; };
 		BA5F5E58D3F723D0DDE9ADF6 /* Pods-TestCondorLabs.release(prod).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabs.release(prod).xcconfig"; path = "Target Support Files/Pods-TestCondorLabs/Pods-TestCondorLabs.release(prod).xcconfig"; sourceTree = "<group>"; };
 		C77287B285FC77D4989A8E34 /* Pods-TestCondorLabsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestCondorLabsTests.release.xcconfig"; path = "Target Support Files/Pods-TestCondorLabsTests/Pods-TestCondorLabsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -256,9 +278,12 @@
 		9545309B2636CED9005F7510 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				959234922639454100C5CAD5 /* PopLikeAndDislike */,
 				954530CF2636D2A6005F7510 /* DetailCat */,
 				954530C52636D291005F7510 /* CustomControlls */,
 				9545309E2636D1A1005F7510 /* ListCats */,
+				9545330B263896BE005F7510 /* Test.storyboard */,
+				95453310263896D7005F7510 /* TestViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,8 +330,8 @@
 		954530A02636D1C2005F7510 /* SearchItem */ = {
 			isa = PBXGroup;
 			children = (
-				954530A12636D1D9005F7510 /* SearchItemView..swift */,
-				954530A22636D1D9005F7510 /* SearchItemView.xib */,
+				95A501F7263A2486007E093B /* SearchBarView.swift */,
+				95A501F6263A2486007E093B /* SearchBarView.xib */,
 			);
 			path = SearchItem;
 			sourceTree = "<group>";
@@ -314,11 +339,15 @@
 		954530C52636D291005F7510 /* CustomControlls */ = {
 			isa = PBXGroup;
 			children = (
+				95453436263926FE005F7510 /* TinderLike */,
+				9545342426391FB5005F7510 /* TransformNewItem */,
+				9545330226389396005F7510 /* TransformView */,
 				9545314A26384268005F7510 /* PhotoView */,
 				954531452638420A005F7510 /* OwnerView.swift */,
 				954530C62636D29C005F7510 /* CustomButton.swift */,
 				954530C72636D29C005F7510 /* CustomView.swift */,
 				954530C82636D29C005F7510 /* SwiftSpinner.swift */,
+				954534192638F5E0005F7510 /* TouchCordinatesButton.swift */,
 			);
 			path = CustomControlls;
 			sourceTree = "<group>";
@@ -366,6 +395,42 @@
 				9545315126384DF6005F7510 /* PhotoView.swift */,
 			);
 			path = PhotoView;
+			sourceTree = "<group>";
+		};
+		9545330226389396005F7510 /* TransformView */ = {
+			isa = PBXGroup;
+			children = (
+				95453303263893CC005F7510 /* TransformView.xib */,
+				95453304263893CC005F7510 /* TransformView.swift */,
+			);
+			path = TransformView;
+			sourceTree = "<group>";
+		};
+		9545342426391FB5005F7510 /* TransformNewItem */ = {
+			isa = PBXGroup;
+			children = (
+				9545342526391FD1005F7510 /* TransformNewItem.xib */,
+				9545342626391FD1005F7510 /* TransformNewItemView.swift */,
+			);
+			path = TransformNewItem;
+			sourceTree = "<group>";
+		};
+		95453436263926FE005F7510 /* TinderLike */ = {
+			isa = PBXGroup;
+			children = (
+				9545343726392714005F7510 /* TinderLikeView.xib */,
+				9545343C26392724005F7510 /* TinderLikeView.swift */,
+			);
+			path = TinderLike;
+			sourceTree = "<group>";
+		};
+		959234922639454100C5CAD5 /* PopLikeAndDislike */ = {
+			isa = PBXGroup;
+			children = (
+				959234932639455A00C5CAD5 /* PopLikeAndDislike.storyboard */,
+				959234982639456900C5CAD5 /* PopLikeAndDislikeViewController.swift */,
+			);
+			path = PopLikeAndDislike;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,13 +542,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				954531072636D855005F7510 /* cat.json in Resources */,
+				9545331926389845005F7510 /* TransformView.xib in Resources */,
 				954530492636CCB0005F7510 /* LaunchScreen.storyboard in Resources */,
 				954530B02636D1F1005F7510 /* ListCats.storyboard in Resources */,
 				9545314D26384DE0005F7510 /* PhotoView.xib in Resources */,
+				9545343826392714005F7510 /* TinderLikeView.xib in Resources */,
+				95A501F8263A2486007E093B /* SearchBarView.xib in Resources */,
 				954530D22636D2AF005F7510 /* DetailCat.storyboard in Resources */,
 				954530462636CCB0005F7510 /* Assets.xcassets in Resources */,
+				9545330C263896BE005F7510 /* Test.storyboard in Resources */,
 				954530442636CCAE005F7510 /* Main.storyboard in Resources */,
-				954530A42636D1D9005F7510 /* SearchItemView.xib in Resources */,
+				9592348E26392DB300C5CAD5 /* TransformNewItem.xib in Resources */,
+				959234942639455A00C5CAD5 /* PopLikeAndDislike.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,24 +682,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				954530412636CCAE005F7510 /* ViewController.swift in Sources */,
+				9592348A26392DA400C5CAD5 /* TransformNewItemView.swift in Sources */,
+				9545343D26392724005F7510 /* TinderLikeView.swift in Sources */,
 				954530DA2636D2E9005F7510 /* Weight.swift in Sources */,
+				95453311263896D7005F7510 /* TestViewController.swift in Sources */,
 				954530CA2636D29D005F7510 /* CustomView.swift in Sources */,
 				954530D32636D2AF005F7510 /* DetailCatViewController.swift in Sources */,
 				9545310F2636D908005F7510 /* TextConstants.swift in Sources */,
 				9545315226384DF6005F7510 /* PhotoView.swift in Sources */,
 				9545313426375AD8005F7510 /* DetailCat.swift in Sources */,
+				9545341A2638F5E0005F7510 /* TouchCordinatesButton.swift in Sources */,
 				954530CB2636D29D005F7510 /* SwiftSpinner.swift in Sources */,
 				954530E22636D304005F7510 /* ListCatsViewModel.swift in Sources */,
 				954530AF2636D1F1005F7510 /* ListCatsViewController.swift in Sources */,
 				954530DC2636D2E9005F7510 /* Image.swift in Sources */,
+				959234992639456900C5CAD5 /* PopLikeAndDislikeViewController.swift in Sources */,
 				954530DB2636D2E9005F7510 /* CatModel.swift in Sources */,
+				9545331526389841005F7510 /* TransformView.swift in Sources */,
 				954531462638420A005F7510 /* OwnerView.swift in Sources */,
 				9545303D2636CCAE005F7510 /* AppDelegate.swift in Sources */,
 				954530E82636D32C005F7510 /* Extensions.swift in Sources */,
-				954530A32636D1D9005F7510 /* SearchItemView..swift in Sources */,
 				954530C92636D29D005F7510 /* CustomButton.swift in Sources */,
 				954530A92636D1E4005F7510 /* ListCatsTableiViewCell.swift in Sources */,
 				9545312F263755DC005F7510 /* DetailCatViewModel.swift in Sources */,
+				95A501F9263A2486007E093B /* SearchBarView.swift in Sources */,
 				954531012636D6E4005F7510 /* CatRepository.swift in Sources */,
 				9545303F2636CCAE005F7510 /* SceneDelegate.swift in Sources */,
 				954530F92636D4ED005F7510 /* WebApi.swift in Sources */,

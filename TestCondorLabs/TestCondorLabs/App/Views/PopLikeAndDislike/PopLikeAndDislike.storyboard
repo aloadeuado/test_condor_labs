@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="31B-6E-aXB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pop Like And Dislike View Controller-->
+        <scene sceneID="ca6-uP-PtM">
+            <objects>
+                <viewController id="31B-6E-aXB" customClass="PopLikeAndDislikeViewController" customModule="TestCondorLabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Zh-og-r3O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGx-OA-c1q">
+                                <rect key="frame" x="0.0" y="44" width="30" height="818"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1W6-fn-BQc">
+                                <rect key="frame" x="30" y="44" width="354" height="60"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="31B-6E-aXB" eventType="touchUpInside" id="8IH-ic-ivQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vL9-Pb-ixt">
+                                <rect key="frame" x="384" y="44" width="30" height="818"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95W-Vb-qYL">
+                                <rect key="frame" x="30" y="802" width="354" height="60"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gk0-Gc-MMM" customClass="TinderLikeView" customModule="TestCondorLabs" customModuleProvider="target">
+                                <rect key="frame" x="30" y="104" width="354" height="698"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wbg-14-a3W"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.279022216796875" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="95W-Vb-qYL" firstAttribute="leading" secondItem="AGx-OA-c1q" secondAttribute="trailing" id="1uq-04-aUA"/>
+                            <constraint firstItem="Gk0-Gc-MMM" firstAttribute="leading" secondItem="Wbg-14-a3W" secondAttribute="leading" constant="30" id="2ss-8s-1kG"/>
+                            <constraint firstItem="Gk0-Gc-MMM" firstAttribute="top" secondItem="Wbg-14-a3W" secondAttribute="top" constant="60" id="2zR-Az-Bie"/>
+                            <constraint firstItem="95W-Vb-qYL" firstAttribute="top" secondItem="Gk0-Gc-MMM" secondAttribute="bottom" id="4hI-9T-hml"/>
+                            <constraint firstItem="Wbg-14-a3W" firstAttribute="top" secondItem="1W6-fn-BQc" secondAttribute="top" id="57K-WC-E6b"/>
+                            <constraint firstItem="Wbg-14-a3W" firstAttribute="bottom" secondItem="vL9-Pb-ixt" secondAttribute="bottom" id="BcS-Es-usP"/>
+                            <constraint firstItem="Wbg-14-a3W" firstAttribute="trailing" secondItem="vL9-Pb-ixt" secondAttribute="trailing" id="Uoi-g5-9TY"/>
+                            <constraint firstItem="AGx-OA-c1q" firstAttribute="leading" secondItem="Wbg-14-a3W" secondAttribute="leading" id="Uqp-Ee-kT9"/>
+                            <constraint firstItem="Wbg-14-a3W" firstAttribute="top" secondItem="vL9-Pb-ixt" secondAttribute="top" id="V2z-my-xYN"/>
+                            <constraint firstItem="Wbg-14-a3W" firstAttribute="trailing" secondItem="Gk0-Gc-MMM" secondAttribute="trailing" constant="30" id="VNd-mJ-LfA"/>
+                            <constraint firstItem="AGx-OA-c1q" firstAttribute="top" secondItem="Wbg-14-a3W" secondAttribute="top" id="fbt-Rr-HaI"/>
+                            <constraint firstItem="Wbg-14-a3W" firstAttribute="bottom" secondItem="95W-Vb-qYL" secondAttribute="bottom" id="gKR-bX-d12"/>
+                            <constraint firstItem="vL9-Pb-ixt" firstAttribute="leading" secondItem="Gk0-Gc-MMM" secondAttribute="trailing" id="ggq-ae-pcu"/>
+                            <constraint firstItem="Gk0-Gc-MMM" firstAttribute="leading" secondItem="AGx-OA-c1q" secondAttribute="trailing" id="iPm-de-Jmr"/>
+                            <constraint firstItem="Wbg-14-a3W" firstAttribute="bottom" secondItem="AGx-OA-c1q" secondAttribute="bottom" id="kUC-a1-YHJ"/>
+                            <constraint firstItem="vL9-Pb-ixt" firstAttribute="leading" secondItem="1W6-fn-BQc" secondAttribute="trailing" id="kmU-UQ-agG"/>
+                            <constraint firstItem="Wbg-14-a3W" firstAttribute="bottom" secondItem="Gk0-Gc-MMM" secondAttribute="bottom" constant="60" id="sdW-CX-YPk"/>
+                            <constraint firstItem="1W6-fn-BQc" firstAttribute="leading" secondItem="AGx-OA-c1q" secondAttribute="trailing" id="wDf-WT-QHT"/>
+                            <constraint firstItem="Gk0-Gc-MMM" firstAttribute="top" secondItem="1W6-fn-BQc" secondAttribute="bottom" id="xq3-wl-OJ0"/>
+                            <constraint firstItem="vL9-Pb-ixt" firstAttribute="leading" secondItem="95W-Vb-qYL" secondAttribute="trailing" id="zQH-pc-0Uc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="catsTinderLikeView" destination="Gk0-Gc-MMM" id="fCK-Ne-vPN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNP-Uz-kbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-65.217391304347828" y="-201.5625"/>
+        </scene>
+    </scenes>
+</document>

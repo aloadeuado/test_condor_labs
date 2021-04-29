@@ -42,6 +42,50 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="9NW-wY-jtu"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="LKl-Lg-B10"/>
                 </scrollView>
+                <button opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQE-zV-9aa" customClass="CustomButton" customModule="TestCondorLabs" customModuleProvider="target">
+                    <rect key="frame" x="358" y="199" width="46" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="SI8-MT-kFV"/>
+                        <constraint firstAttribute="width" constant="46" id="vhk-Yu-cHp"/>
+                    </constraints>
+                    <state key="normal" image="ic_arrow_rigth"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="23"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.50980392159999999" green="0.49803921569999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextItemPressedWithButton:" destination="-1" eventType="touchUpInside" id="55U-ww-2qt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ro3-pK-GPQ" customClass="CustomButton" customModule="TestCondorLabs" customModuleProvider="target">
+                    <rect key="frame" x="10" y="199" width="46" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="46" id="eqb-mr-eG0"/>
+                        <constraint firstAttribute="height" constant="46" id="igQ-5V-UkL"/>
+                    </constraints>
+                    <state key="normal" image="ic_arrowleft"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="23"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.50980392159999999" green="0.49803921569999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="beforeItemPressedWithButton:" destination="-1" eventType="touchUpInside" id="14z-Wd-cr3"/>
+                    </connections>
+                </button>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="H0k-N2-RAL">
                     <rect key="frame" x="145.5" y="367" width="123" height="28"/>
                 </pageControl>
@@ -50,8 +94,12 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="jnl-Nb-2fJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2pg-U3-bOZ"/>
+                <constraint firstItem="ro3-pK-GPQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="3Fd-PB-U7y"/>
                 <constraint firstItem="f6g-yh-ttj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="93i-rV-2Ir"/>
+                <constraint firstItem="ro3-pK-GPQ" firstAttribute="centerY" secondItem="rQE-zV-9aa" secondAttribute="centerY" id="HDE-RD-xfc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rQE-zV-9aa" secondAttribute="trailing" constant="10" id="MYU-ke-maM"/>
                 <constraint firstItem="jnl-Nb-2fJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="STf-KZ-NJ8"/>
+                <constraint firstItem="rQE-zV-9aa" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Wwa-gM-x0Y"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jnl-Nb-2fJ" secondAttribute="bottom" id="Z9Z-nD-DtV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jnl-Nb-2fJ" secondAttribute="trailing" id="eQa-gI-E1C"/>
                 <constraint firstItem="H0k-N2-RAL" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="jJb-yG-RMC"/>
@@ -62,7 +110,17 @@
             <point key="canvasLocation" x="34.782608695652179" y="84.375"/>
         </view>
     </objects>
+    <designables>
+        <designable name="rQE-zV-9aa">
+            <size key="intrinsicContentSize" width="286.5" height="221.5"/>
+        </designable>
+        <designable name="ro3-pK-GPQ">
+            <size key="intrinsicContentSize" width="286.5" height="221.5"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="ic_arrow_rigth" width="286.66665649414062" height="221.66667175292969"/>
+        <image name="ic_arrowleft" width="286.66665649414062" height="221.66667175292969"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

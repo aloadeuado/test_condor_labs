@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import TTGSnackbar
 class DetailCatViewController: UIViewController {
 
     @IBOutlet weak var catImageView: UIImageView!
@@ -26,8 +26,15 @@ class DetailCatViewController: UIViewController {
     }
     
     func initComponent(){
-        catsPhotoView.listUrlImage = ["https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg", "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg", "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg", "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg", "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg"]
+        
         detailCatViewModel = DetailCatViewModel(detailCatViewModelDelegate: self)
+        guard let catModel = selectCat else {return}
+        detailCatViewModel?.getDetailCat(idBread: catModel.id ?? "")
+        setInfo()
+        
+    }
+    
+    func setInfo() {
         guard let catModel = selectCat else {return}
         guard let image = catModel.image else {return}
         guard let urlImage = image.url else {return}
@@ -37,7 +44,7 @@ class DetailCatViewController: UIViewController {
         guard let origeCat = catModel.origin else {return}
         guard let temperamentCat = catModel.temperament else {return}
         guard let detailCat = catModel.description else {return}
-        detailCatViewModel?.getDetailCat(idBread: catModel.id ?? "")
+        
         if !listDetailCatElement.isEmpty {
             guard let urlImageURL = URL(string: listDetailCatElement[0].url) else {return}
             catImageView.load(url: urlImageURL)
@@ -46,18 +53,36 @@ class DetailCatViewController: UIViewController {
             smartLabel.text = temperamentCat
             detailLabel.text = detailCat
         }
-        
+    }
+    
+    func setPhotosDetail() {
+        var listPhotosText = [String]()
+        listDetailCatElement.forEach { (detailCatElement) in
+            listPhotosText.append(detailCatElement.url)
+        }
+        catsPhotoView.listUrlImage = listPhotosText
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? PopLikeAndDislikeViewController {
+            var listImages = [UIImage]()
+            catsPhotoView.listImages.forEach { (imageView) in
+                if let image = imageView.image {
+                    listImages.append(image)
+                }
+            }
+            vc.listImages = listImages
+        }
     }
-    */
+    
+    @IBAction func showPopOver(button: UIButton) {
+        performSegue(withIdentifier: "showPopOver", sender: nil)
+    }
+    
 
 }
 
@@ -65,10 +90,13 @@ extension DetailCatViewController: DetailCatViewModelDelegate {
     func successgetListCats(succesGetCat listCats: [DetailCatElement]) {
         self.listDetailCatElement = listCats
         //initComponent()
+        setInfo()
+        setPhotosDetail()
     }
     
     func error(error: String) {
-        
+        let snackbar = TTGSnackbar(message: error, duration: .short)
+        snackbar.show()
     }
     
     

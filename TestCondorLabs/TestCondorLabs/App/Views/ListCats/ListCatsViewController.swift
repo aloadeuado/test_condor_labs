@@ -10,11 +10,12 @@ import TTGSnackbar
 
 class ListCatsViewController: UIViewController {
 
-    @IBOutlet weak var searchItemView: SearchItemView!
+    @IBOutlet weak var searchItemView: SearchBarView!
     @IBOutlet weak var catsTableView: UITableView!
     
     var isLoading = false
     var initListCats = [CatModel]()
+    var listCats = [CatModel]()
     var selectCat: CatModel?
     var listCatsViewModel: ListCatsViewModel?
     let limit = 10
@@ -50,7 +51,7 @@ extension ListCatsViewController: UITableViewDataSource{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (isLoading) ? limitSkeletor : initListCats.count + limitSkeletor
+        return (isLoading) ? limitSkeletor : listCats.count + limitSkeletor
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,11 +61,11 @@ extension ListCatsViewController: UITableViewDataSource{
             } else {
              
                 print("==index: \(indexPath.row)")
-                if indexPath.row > (initListCats.count - 1) {
+                if indexPath.row > (self.listCats.count - 1) {
                     cell.showSkeletor()
                 } else {
                     cell.generalView.stopShimmeringAnimation()
-                    cell.setData(catModel: initListCats[indexPath.row]) { (catModel) in
+                    cell.setData(catModel: self.listCats[indexPath.row]) { (catModel) in
                         self.selectCat = catModel
                         self.performSegue(withIdentifier: "showDetailCat", sender: nil)
                     }
@@ -83,6 +84,8 @@ extension ListCatsViewController: UITableViewDataSource{
 extension ListCatsViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        self.selectCat = listCats[indexPath.row]
+        self.performSegue(withIdentifier: "showDetailCat", sender: nil)
     }
 }
 
@@ -101,6 +104,7 @@ extension ListCatsViewController: ListCatsViewModelDelegate{
             isFullPageCall = true
         }
         self.initListCats.append(contentsOf: listCats)
+        self.listCats = self.initListCats 
         isLoading = false
         isCallService = true
         catsTableView.reloadData()
@@ -109,11 +113,21 @@ extension ListCatsViewController: ListCatsViewModelDelegate{
     
 }
 //MARK: -SearchItemViewDelegate
-extension ListCatsViewController: SearchItemViewDelegate{
-    func fetchField(text: String) {
-        //self.listCats = listCatsViewModel?.filterCats(text: text, listCats: self.initListCats) ?? [CatModel]()
-        //catsTableView.reloadData()
+extension ListCatsViewController: SearchBarViewDelegate{
+    func searchBarView(didEdintingText text: String) {
+        self.listCats = listCatsViewModel?.filterCats(text: text, listCats: self.initListCats) ?? [CatModel]()
+        catsTableView.reloadData()
     }
+    
+    func searchBarView(didClearText textBeforeClear: String) {
+        self.listCats = self.initListCats
+        catsTableView.reloadData()
+    }
+    
+    /*func fetchField(text: String) {
+        self.listCats = listCatsViewModel?.filterCats(text: text, listCats: self.initListCats) ?? [CatModel]()
+        catsTableView.reloadData()
+    }*/
     
     
 }
