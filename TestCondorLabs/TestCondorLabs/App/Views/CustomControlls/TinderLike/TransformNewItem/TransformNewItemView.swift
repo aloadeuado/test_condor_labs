@@ -30,11 +30,36 @@ class TransformNewItem: OwnerView {
         return "TransformNewItem"
     }
 
-    @IBAction func slectDownPressed(_ sender: UIButton) {
-        isDidMoved = true
+    func rightArea(complete: @escaping (() -> Void)) {
+        //finishState()
+        var t = CGAffineTransform.identity
+        t = t.scaledBy(x: 0.1, y: 0.1)
+        
+        contentPhotoImageView.transform = t
+        UIView.animate(withDuration: 1.0, animations: {
+            var t = CGAffineTransform.identity
+            t = t.scaledBy(x: 1, y: 1)
+            
+            self.contentPhotoImageView.transform = t
+        }) { (vara) in
+            complete()
+        }
     }
-    @IBAction func selectUpPressed(_ sender: Any) {
-        isDidMoved = false
+    
+    func leftArea(complete: @escaping (() -> Void)) {
+        //finishState()
+        var t = CGAffineTransform.identity
+        t = t.scaledBy(x: 0.1, y: 0.1)
+        
+        contentPhotoImageView.transform = t
+        UIView.animate(withDuration: 1.0, animations: {
+            var t = CGAffineTransform.identity
+            t = t.scaledBy(x: 1, y: 1)
+            
+            self.contentPhotoImageView.transform = t
+        }) { (vara) in
+            complete()
+        }
     }
 }
 //MARK: -TouchCordinatesButtonDelegate

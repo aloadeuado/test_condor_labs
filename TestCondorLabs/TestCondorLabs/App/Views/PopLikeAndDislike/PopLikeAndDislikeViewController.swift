@@ -10,6 +10,7 @@ import UIKit
 class PopLikeAndDislikeViewController: UIViewController {
 
     var listImages = [UIImage]()
+    var ok: (([TinderItem]) -> Void)?
     @IBOutlet weak var catsTinderLikeView: TinderLikeView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,12 @@ class PopLikeAndDislikeViewController: UIViewController {
 }
 
 extension PopLikeAndDislikeViewController:TinderLikeViewDelegate{
+    func tinderLikeView(didDislike listTinderItem: [TinderItem]) {
+        dismiss(animated: true) {
+            self.ok?(listTinderItem)
+        }
+    }
+    
     func tinderLikeView(didLike index: Int, image: UIImage) {
         
     }
@@ -47,4 +54,17 @@ extension PopLikeAndDislikeViewController:TinderLikeViewDelegate{
     }
     
     
+}
+//MARK: -show
+extension PopLikeAndDislikeViewController {
+    static func show(controller: UIViewController, listImages: [UIImage], ok: @escaping (([TinderItem]) -> Void)) {
+        let storyBoard1 = UIStoryboard(name: "PopLikeAndDislike", bundle: nil)
+        if let alert = storyBoard1.instantiateInitialViewController() as? PopLikeAndDislikeViewController {
+            alert.modalPresentationStyle = .overFullScreen
+            alert.modalTransitionStyle = .crossDissolve
+            alert.listImages = listImages
+            alert.ok = ok
+            controller.present(alert, animated: true, completion: nil)
+        }
+    }
 }

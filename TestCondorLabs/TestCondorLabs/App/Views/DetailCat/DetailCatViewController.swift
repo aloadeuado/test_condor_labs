@@ -15,10 +15,14 @@ class DetailCatViewController: UIViewController {
     @IBOutlet weak var smartLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var catsPhotoView: PhotoView!
+    @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var stateView: CustomView!
     
     var selectCat: CatModel?
     var detailCatViewModel: DetailCatViewModel?
     var listDetailCatElement = [DetailCatElement]()
+    var listTinderItem = [TinderItem]()
+    var indexSelect = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         initComponent()
@@ -26,12 +30,14 @@ class DetailCatViewController: UIViewController {
     }
     
     func initComponent(){
-        
+        catsPhotoView.delegate = self
         detailCatViewModel = DetailCatViewModel(detailCatViewModelDelegate: self)
         guard let catModel = selectCat else {return}
         detailCatViewModel?.getDetailCat(idBread: catModel.id ?? "")
         setInfo()
-        
+        var t = CGAffineTransform.identity
+        t = t.rotated(by: -45 * (CGFloat.pi / 180))
+        self.stateView.transform = t
     }
     
     func setInfo() {
@@ -63,24 +69,45 @@ class DetailCatViewController: UIViewController {
         catsPhotoView.listUrlImage = listPhotosText
     }
 
+    func setLikeDislike(image: UIImage, listTinderItem: [TinderItem]) {
+        let firstÇitem = listTinderItem.first { (item) -> Bool in
+            return item.image == image
+        }
+        
+        if let firstItem = firstÇitem {
+            stateView.isHidden = false
+            if firstItem.isLike {
+                stateView.borderColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                stateLabel.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                stateLabel.text = "LIKE"
+            } else {
+                stateView.borderColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                stateLabel.textColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+                stateLabel.text = "DISLIKE"
+            }
+        } else {
+            stateView.isHidden = true
+        }
+    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? PopLikeAndDislikeViewController {
-            var listImages = [UIImage]()
-            catsPhotoView.listImages.forEach { (imageView) in
-                if let image = imageView.image {
-                    listImages.append(image)
-                }
-            }
-            vc.listImages = listImages
-        }
-    }
     
     @IBAction func showPopOver(button: UIButton) {
-        performSegue(withIdentifier: "showPopOver", sender: nil)
+        var listImages = [UIImage]()
+        catsPhotoView.listImages.forEach { (imageView) in
+            if let image = imageView.image {
+                listImages.append(image)
+            }
+        }
+        PopLikeAndDislikeViewController.show(controller: self, listImages: listImages) { (listTinderItem) in
+            self.listTinderItem = listTinderItem
+            if let image = self.catsPhotoView.listImages[self.indexSelect].image {
+                self.setLikeDislike(image: image, listTinderItem: self.listTinderItem)
+            }
+            
+        }
     }
     
 
@@ -97,6 +124,14 @@ extension DetailCatViewController: DetailCatViewModelDelegate {
     func error(error: String) {
         let snackbar = TTGSnackbar(message: error, duration: .short)
         snackbar.show()
+    }
+    
+    
+}
+extension DetailCatViewController: PhotoViewDelegate {
+    func photoView(didSelect index: Int, image: UIImage) {
+        indexSelect = index
+        setLikeDislike(image: image, listTinderItem: listTinderItem)
     }
     
     

@@ -7,8 +7,12 @@
 
 import UIKit
 import URLImage
+protocol PhotoViewDelegate {
+    func photoView(didSelect index:Int, image: UIImage)
+}
 class PhotoView: OwnerView {
 
+    var delegate: PhotoViewDelegate?
     @IBOutlet weak var generalScrollView: UIScrollView!
     @IBOutlet weak var generalView: UIView!
     @IBOutlet weak var inicatorPanelControl: UIPageControl!
@@ -74,6 +78,10 @@ class PhotoView: OwnerView {
 
     func setView(index: Int) {
         indexSelection = index
+        if let image = listImages[indexSelection].image {
+            delegate?.photoView(didSelect: indexSelection, image: image)
+        }
+        
         inicatorPanelControl.currentPage = index
         for imageView in listImages {
             if imageView.tag == index {

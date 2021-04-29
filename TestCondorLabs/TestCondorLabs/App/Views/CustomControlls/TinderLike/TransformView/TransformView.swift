@@ -33,11 +33,52 @@ class TransformView: OwnerView {
         return "TransformView"
     }
 
-    @IBAction func slectDownPressed(_ sender: UIButton) {
-        isDidMoved = true
+    func rightArea(complete: @escaping (() -> Void)) {
+        //finishState()
+        var t = CGAffineTransform.identity
+        t = t.translatedBy(x: 0, y: 0)
+        t = t.rotated(by: 0 * (CGFloat.pi / 180))
+        self.contentPhotoImageView.transform = t
+        self.contentPhotoImageView.alpha = 1
+        UIView.animate(withDuration: 1.0, animations: {
+            var t = CGAffineTransform.identity
+            t = t.translatedBy(x: self.frame.width, y: self.frame.height / 2)
+            t = t.rotated(by: 20 * (CGFloat.pi / 180))
+            
+            self.contentPhotoImageView.transform = t
+            self.contentPhotoImageView.alpha = 0.3
+        }) { (vara) in
+            var t = CGAffineTransform.identity
+            t = t.translatedBy(x: 0, y: 0)
+            t = t.rotated(by: 0 * (CGFloat.pi / 180))
+            self.contentPhotoImageView.transform = t
+            self.contentPhotoImageView.alpha = 1
+            complete()
+        }
     }
-    @IBAction func selectUpPressed(_ sender: Any) {
-        isDidMoved = false
+    
+    func leftArea(complete: @escaping (() -> Void)) {
+        //finishState()
+        var t = CGAffineTransform.identity
+        t = t.translatedBy(x: 0, y: 0)
+        t = t.rotated(by: 0 * (CGFloat.pi / 180))
+        self.contentPhotoImageView.transform = t
+        self.contentPhotoImageView.alpha = 1
+        UIView.animate(withDuration: 1.0, animations: {
+            var t = CGAffineTransform.identity
+            t = t.translatedBy(x: -self.frame.width, y: self.frame.height / 2)
+            t = t.rotated(by: -20 * (CGFloat.pi / 180))
+            
+            self.contentPhotoImageView.transform = t
+            self.contentPhotoImageView.alpha = 0.3
+        }) { (vara) in
+            var t = CGAffineTransform.identity
+            t = t.translatedBy(x: 0, y: 0)
+            t = t.rotated(by: 0 * (CGFloat.pi / 180))
+            self.contentPhotoImageView.transform = t
+            self.contentPhotoImageView.alpha = 1
+            complete()
+        }
     }
 }
 //MARK: -TouchCordinatesButtonDelegate

@@ -14,6 +14,8 @@
                 <outlet property="disLikeButton" destination="EWW-cl-WvJ" id="v6t-vc-2JQ"/>
                 <outlet property="likeButton" destination="oYD-zB-MRY" id="7Ua-wg-NPF"/>
                 <outlet property="movedButton" destination="hrC-iH-vjt" id="x2o-yA-BVH"/>
+                <outlet property="stateLabel" destination="xuh-M9-M9S" id="4y0-Fi-1OH"/>
+                <outlet property="stateView" destination="0T3-mb-sfG" id="fqf-8G-sS8"/>
                 <outlet property="transformNewItem" destination="OlC-m8-qU5" id="vAI-yz-V97"/>
                 <outlet property="transformView" destination="2xs-Kd-zGs" id="7La-hY-DK3"/>
             </connections>
@@ -31,16 +33,51 @@
                     <rect key="frame" x="20" y="64" width="374" height="421"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0T3-mb-sfG" customClass="CustomView" customModule="TestCondorLabs" customModuleProvider="target">
+                    <rect key="frame" x="169" y="248.5" width="76.5" height="52.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIKE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuh-M9-M9S">
+                            <rect key="frame" x="10" y="10" width="56.5" height="32.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                            <color key="textColor" systemColor="systemGreenColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xuh-M9-M9S" secondAttribute="bottom" constant="10" id="CJS-1B-X9K"/>
+                        <constraint firstAttribute="trailing" secondItem="xuh-M9-M9S" secondAttribute="trailing" constant="10" id="L7n-xB-KzC"/>
+                        <constraint firstItem="xuh-M9-M9S" firstAttribute="leading" secondItem="0T3-mb-sfG" secondAttribute="leading" constant="10" id="ZLa-cD-1MV"/>
+                        <constraint firstItem="xuh-M9-M9S" firstAttribute="top" secondItem="0T3-mb-sfG" secondAttribute="top" constant="10" id="wfQ-OP-zEN"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" systemColor="systemGreenColor"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ioq-U2-fsZ">
                     <rect key="frame" x="60" y="500" width="294" height="100"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWW-cl-WvJ">
                             <rect key="frame" x="0.0" y="7.5" width="147" height="85.5"/>
                             <state key="normal" title="Dislike" image="ic_dislike"/>
+                            <connections>
+                                <action selector="dislikePressed:" destination="-1" eventType="touchUpInside" id="G8i-K7-liJ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYD-zB-MRY">
                             <rect key="frame" x="147" y="7.5" width="147" height="85.5"/>
                             <state key="normal" image="ic_like"/>
+                            <connections>
+                                <action selector="likePressed:" destination="-1" eventType="touchUpInside" id="294-TV-fKS"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -66,6 +103,8 @@
                 <constraint firstItem="2xs-Kd-zGs" firstAttribute="bottom" secondItem="OlC-m8-qU5" secondAttribute="bottom" id="Ymw-X7-Xr3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ioq-U2-fsZ" secondAttribute="bottom" id="h2C-co-4DA"/>
                 <constraint firstItem="ioq-U2-fsZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="60" id="j7P-W1-Ffs"/>
+                <constraint firstItem="0T3-mb-sfG" firstAttribute="centerX" secondItem="2xs-Kd-zGs" secondAttribute="centerX" id="l03-g2-0gj"/>
+                <constraint firstItem="0T3-mb-sfG" firstAttribute="centerY" secondItem="2xs-Kd-zGs" secondAttribute="centerY" id="oOx-X8-OPH"/>
                 <constraint firstItem="ioq-U2-fsZ" firstAttribute="top" secondItem="hrC-iH-vjt" secondAttribute="bottom" id="qtb-nf-nQn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hrC-iH-vjt" secondAttribute="trailing" id="tgM-Ne-gVJ"/>
                 <constraint firstItem="2xs-Kd-zGs" firstAttribute="leading" secondItem="OlC-m8-qU5" secondAttribute="leading" id="zQa-mU-YJb"/>
@@ -84,6 +123,9 @@
         <image name="ic_like" width="85.333335876464844" height="85.333335876464844"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

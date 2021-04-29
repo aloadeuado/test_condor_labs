@@ -340,8 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				95453436263926FE005F7510 /* TinderLike */,
-				9545342426391FB5005F7510 /* TransformNewItem */,
-				9545330226389396005F7510 /* TransformView */,
 				9545314A26384268005F7510 /* PhotoView */,
 				954531452638420A005F7510 /* OwnerView.swift */,
 				954530C62636D29C005F7510 /* CustomButton.swift */,
@@ -418,6 +416,8 @@
 		95453436263926FE005F7510 /* TinderLike */ = {
 			isa = PBXGroup;
 			children = (
+				9545342426391FB5005F7510 /* TransformNewItem */,
+				9545330226389396005F7510 /* TransformView */,
 				9545343726392714005F7510 /* TinderLikeView.xib */,
 				9545343C26392724005F7510 /* TinderLikeView.swift */,
 			);
